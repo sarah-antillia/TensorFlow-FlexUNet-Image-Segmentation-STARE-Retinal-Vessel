@@ -249,7 +249,7 @@ By using this callback, on every epoch_change, the inference procedure can be ca
 <img src="./projects/TensorFlowFlexUNet/STARE/asset/epoch_change_infer_at_start.png" width="1024" height="auto"><br>
 <br>
 
-<b>Epoch_change_inference output at middlepoint (epoch 44,45,46)</b><br>
+<b>Epoch_change_inference output at middlepoint (epoch 43,44,45)</b><br>
 <img src="./projects/TensorFlowFlexUNet/STARE/asset/epoch_change_infer_at_middlepoint.png" width="1024" height="auto"><br>
 <br>
 <b>Epoch_change_inference output at ending (epoch 89,90,91)</b><br>
