@@ -1,2 +1,2 @@
-categorical_crossentropy,0.0683
-dice_coef_multiclass,0.9677
+categorical_crossentropy,0.0569
+dice_coef_multiclass,0.9704

@@ -1,5 +1,6 @@
 <h2>TensorFlow-FlexUNet-Image-Segmentation-STARE-Retinal-Vessel (2025/07/01)</h2>
-
+<li>2025/07/01: Updated the train_eval_infer.config file, and retrained the model.</li>
+<br>
 This is the first experiment of Image Segmentation for STARE Retinal Vessel 
  based on our TensorFlowFlexUNet (TensorFlow Flexible UNet Image Segmentation Model for Multiclass) 
 and, <a href="https://drive.google.com/file/d/1dpyrsehyzNOgRgzv-PmhNAuHjLAoZY-U/view?usp=sharing">
@@ -156,11 +157,11 @@ As shown above, the number of images of train and valid datasets is not enough t
 <br>
 
 <h3>
-3 Train TensorflowUNet Model
+3 Train TensorflowFlexUNet Model
 </h3>
- We have trained STARETensorflowUNet Model by using the following
+ We have trained STARE TensorflowFlexUNet Model by using the following
 <a href="./projects/TensorFlowFlexUNet/STARE/train_eval_infer.config"> <b>train_eval_infer.config</b></a> file. <br>
-Please move to ./projects/TensorFlowFlexUNet/STAREand run the following bat file.<br>
+Please move to ./projects/TensorFlowFlexUNet/STARE and run the following bat file.<br>
 <pre>
 >1.train.bat
 </pre>
@@ -172,7 +173,7 @@ Please move to ./projects/TensorFlowFlexUNet/STAREand run the following bat file
 
 <b>Model parameters</b><br>
 Defined a small <b>base_filters</b> and large <b>base_kernels</b> for the first Conv Layer of Encoder Block of 
-<a href="./src/TensorflowFlexUNet.py">TensorflowFlesUNet.py</a> 
+<a href="./src/TensorflowFlexUNet.py">TensorflowFlexUNet.py</a> 
 and a large num_layers (including a bridge between Encoder and Decoder Blocks).
 <pre>
 [model]
@@ -181,14 +182,14 @@ base_kernels   = (9,9)
 num_layers     = 8
 num_classes    = 2
 
-dilation       = (3,3)
+dilation       = (1,1)
 </pre>
 
 <b>Learning rate</b><br>
 Defined a very small learning rate.  
 <pre>
 [model]
-learning_rate  = 0.00007
+learning_rate  = 0.00004
 </pre>
 
 <b>Online augmentation</b><br>
@@ -249,15 +250,15 @@ By using this callback, on every epoch_change, the inference procedure can be ca
 <img src="./projects/TensorFlowFlexUNet/STARE/asset/epoch_change_infer_at_start.png" width="1024" height="auto"><br>
 <br>
 
-<b>Epoch_change_inference output at middlepoint (epoch 43,44,45)</b><br>
+<b>Epoch_change_inference output at middlepoint (epoch 48,49,50)</b><br>
 <img src="./projects/TensorFlowFlexUNet/STARE/asset/epoch_change_infer_at_middlepoint.png" width="1024" height="auto"><br>
 <br>
-<b>Epoch_change_inference output at ending (epoch 89,90,91)</b><br>
+<b>Epoch_change_inference output at ending (epoch 98,99,100)</b><br>
 <img src="./projects/TensorFlowFlexUNet/STARE/asset/epoch_change_infer_at_end.png" width="1024" height="auto"><br>
 <br>
 
-In this experiment, the training process was stopped at epoch 91 by EarlyStopping callback.<br><br>
-<img src="./projects/TensorFlowFlexUNet/STARE/asset/train_console_output_at_epoch_91.png" width="720" height="auto"><br>
+In this experiment, the training process was terminated at epoch 100.<br><br>
+<img src="./projects/TensorFlowFlexUNet/STARE/asset/train_console_output_at_epoch_100.png" width="720" height="auto"><br>
 <br>
 
 <a href="./projects/TensorFlowFlexUNet/STARE/eval/train_metrics.csv">train_metrics.csv</a><br>
@@ -272,8 +273,8 @@ In this experiment, the training process was stopped at epoch 91 by EarlyStoppin
 <h3>
 4 Evaluation
 </h3>
-Please move to a <b>./projects/TensorFlowFlexUNet/STARE</b> folder,<br>
-and run the following bat file to evaluate TensorflowUNet model for STARE.<br>
+Please move to <b>./projects/TensorFlowFlexUNet/STARE</b> folder,<br>
+and run the following bat file to evaluate TensorflowFlexUNet model for STARE.<br>
 <pre>
 ./2.evaluate.bat
 </pre>
@@ -283,7 +284,7 @@ python ../../../src/TensorflowFlexUNetEvaluator.py ./train_eval_infer_aug.config
 </pre>
 
 Evaluation console output:<br>
-<img src="./projects/TensorFlowFlexUNet/STARE/asset/evaluate_console_output_at_epoch_91.png" width="720" height="auto">
+<img src="./projects/TensorFlowFlexUNet/STARE/asset/evaluate_console_output_at_epoch_100.png" width="720" height="auto">
 <br><br>Image-Segmentation-STARE
 
 <a href="./projects/TensorFlowFlexUNet/STARE/evaluation.csv">evaluation.csv</a><br>
@@ -291,16 +292,16 @@ Evaluation console output:<br>
 The loss (bce_dice_loss) to this STARE/test was very low, and dice_coef very high as shown below.
 <br>
 <pre>
-ategorical_crossentropy,0.0683
-dice_coef_multiclass,0.9677
+categorical_crossentropy,0.0569
+dice_coef_multiclass,0.9704
 </pre>
 <br>
 
 <h3>
 5 Inference
 </h3>
-Please move to a <b>./projects/TensorFlowFlexUNet/STARE</b> folder<br>
-,and run the following bat file to infer segmentation regions for images by the Trained-TensorflowUNet model for STARE.<br>
+Please move to <b>./projects/TensorFlowFlexUNet/STARE</b> folder<br>
+,and run the following bat file to infer segmentation regions for images by the Trained-TensorflowFlexUNet model for STARE.<br>
 <pre>
 ./3.infer.bat
 </pre>
