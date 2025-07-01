@@ -249,15 +249,15 @@ By using this callback, on every epoch_change, the inference procedure can be ca
 <img src="./projects/TensorFlowFlexUNet/STARE/asset/epoch_change_infer_at_start.png" width="1024" height="auto"><br>
 <br>
 
-<b>Epoch_change_inference output at middlepoint (epoch 28,29,30)</b><br>
+<b>Epoch_change_inference output at middlepoint (epoch 44,45,46)</b><br>
 <img src="./projects/TensorFlowFlexUNet/STARE/asset/epoch_change_infer_at_middlepoint.png" width="1024" height="auto"><br>
 <br>
-<b>Epoch_change_inference output at ending (epoch 58,59,60)</b><br>
+<b>Epoch_change_inference output at ending (epoch 89,90,91)</b><br>
 <img src="./projects/TensorFlowFlexUNet/STARE/asset/epoch_change_infer_at_end.png" width="1024" height="auto"><br>
 <br>
 
-In this experiment, the training process was stopped at epoch 60 by EarlyStopping callback.<br><br>
-<img src="./projects/TensorFlowFlexUNet/STARE/asset/train_console_output_at_epoch_60.png" width="720" height="auto"><br>
+In this experiment, the training process was stopped at epoch 91 by EarlyStopping callback.<br><br>
+<img src="./projects/TensorFlowFlexUNet/STARE/asset/train_console_output_at_epoch_91.png" width="720" height="auto"><br>
 <br>
 
 <a href="./projects/TensorFlowFlexUNet/STARE/eval/train_metrics.csv">train_metrics.csv</a><br>
@@ -283,7 +283,7 @@ python ../../../src/TensorflowFlexUNetEvaluator.py ./train_eval_infer_aug.config
 </pre>
 
 Evaluation console output:<br>
-<img src="./projects/TensorFlowFlexUNet/STARE/asset/evaluate_console_output_at_epoch_60.png" width="720" height="auto">
+<img src="./projects/TensorFlowFlexUNet/STARE/asset/evaluate_console_output_at_epoch_91.png" width="720" height="auto">
 <br><br>Image-Segmentation-STARE
 
 <a href="./projects/TensorFlowFlexUNet/STARE/evaluation.csv">evaluation.csv</a><br>
@@ -291,8 +291,8 @@ Evaluation console output:<br>
 The loss (bce_dice_loss) to this STARE/test was very low, and dice_coef very high as shown below.
 <br>
 <pre>
-categorical_crossentropy,0.017
-dice_coef_multiclass,0.9933
+ategorical_crossentropy,0.0683
+dice_coef_multiclass,0.9677
 </pre>
 <br>
 
