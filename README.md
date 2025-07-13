@@ -75,7 +75,7 @@ Tensorflow-Tiled-Image-Segmentation-Pre-Augmented-STARE-Retinal-Vessel
 <br>
 
 <h3>1. Dataset Citation</h3>
-The dataset used here has been take from 
+The dataset used here has been taken
 from the following images and labels
 in <a href="https://cecas.clemson.edu/~ahoover/stare/">
 STructured Analysis of the Retina
